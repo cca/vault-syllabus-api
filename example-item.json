@@ -1,0 +1,45 @@
+{
+    "uuid": "08ff7c0c-b344-4a32-b5e7-9cf01596b27c",
+    "version": 1,
+    "name": "Spring 2019 | WRITE-600 | Writer's Wkshp: Fiction",
+    "metadata": "<xml><local><courseInfo><semester>Spring 2019</semester><department>WRITE</department><course>Writer's Wkshp: Fiction</course><faculty>Tom Barbash</faculty><section>WRITE-600-02</section><courseName>WRITE-600</courseName><facultyID>tbarbash</facultyID><courseinfo>Spring 2019\\WRITE\\Writer's Wkshp: Fiction\\Tom Barbash\\WRITE-600-02</courseinfo></courseInfo><department>Writing (MFA)</department><division>Humanities &amp; Sciences Division</division></local><mods><part><number>c1f9d07f-eb11-4852-9850-d49617560f67</number></part><titleInfo><title>Spring 2019 | WRITE-600 | Writer's Wkshp: Fiction</title></titleInfo></mods></xml>",
+    "status": "live",
+    "createdDate": "2019-03-08T12:57:38.036-08:00",
+    "modifiedDate": "2019-03-08T12:57:38.032-08:00",
+    "owner": {
+      "id": "tbarbash"
+    },
+    "collaborators": [],
+    "collection": {
+      "uuid": "9ec74523-e018-4e01-ab4e-be4dd06cdd68"
+    },
+    "rating": -1,
+    "attachments": [
+      {
+        "type": "file",
+        "uuid": "c1f9d07f-eb11-4852-9850-d49617560f67",
+        "description": "fallsyl.pdf",
+        "preview": false,
+        "restricted": false,
+        "thumbnail": "_THUMBS/fallsyl.pdf.jpeg",
+        "filename": "fallsyl.pdf",
+        "size": 43619,
+        "conversion": false,
+        "thumbFilename": "_THUMBS/fallsyl.pdf.jpeg",
+        "links": {
+          "view": "https://vault.cca.edu/items/08ff7c0c-b344-4a32-b5e7-9cf01596b27c/1/?attachment.uuid=c1f9d07f-eb11-4852-9850-d49617560f67",
+          "thumbnail": "https://vault.cca.edu/thumbs/08ff7c0c-b344-4a32-b5e7-9cf01596b27c/1/c1f9d07f-eb11-4852-9850-d49617560f67"
+        }
+      }
+    ],
+    "navigation": {
+      "hideUnreferencedAttachments": false,
+      "showSplitOption": false,
+      "nodes": []
+    },
+    "drm": {},
+    "links": {
+      "view": "https://vault.cca.edu/items/08ff7c0c-b344-4a32-b5e7-9cf01596b27c/1/",
+      "self": "https://vault.cca.edu/api/item/08ff7c0c-b344-4a32-b5e7-9cf01596b27c/1/"
+    }
+}

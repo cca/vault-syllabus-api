@@ -1,0 +1,9 @@
+# python virtualenv
+bin
+include
+lib
+.Python
+pip-selfcheck.json
+
+config.json
+syllabus.pdf
