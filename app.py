@@ -8,7 +8,7 @@ with open('config.json') as f:
 filename = 'syllabus.pdf'
 
 headers = {
-    'X-Authorization': 'access_token=' + config.access_token,
+    'X-Authorization': 'access_token=' + config["access_token"],
 }
 
 # Steps:
@@ -19,7 +19,7 @@ headers = {
 
 # Step 1) File Area
 
-filearea = requests.post(config.api_root + "/file", headers=headers)
+filearea = requests.post(config["api_root"] + "/file", headers=headers)
 # example response JSON:
 # {'type': 'root', 'filename': '', 'files': [], 'folders': [], 'uuid': '83914a3e-ab74-4534-967c-958f94ec5017', 'links': {'self': 'https://vault.cca.edu/api/file/83914a3e-ab74-4534-967c-958f94ec5017/dir', 'dir': 'https://vault.cca.edu/api/file/83914a3e-ab74-4534-967c-958f94ec5017/dir', 'content': 'https://vault.cca.edu/api/file/83914a3e-ab74-4534-967c-958f94ec5017/content'}}
 filearea_uuid = filearea.json()["uuid"]
@@ -27,7 +27,7 @@ filearea_uuid = filearea.json()["uuid"]
 
 # Step 2) File Upload
 with open(filename, 'rb') as data:
-    attachment = requests.put("{}/file/{}/content/{}".format(config.api_root, filearea_uuid, filename), data=data, headers=headers)
+    attachment = requests.put("{}/file/{}/content/{}".format(config["api_root"], filearea_uuid, filename), data=data, headers=headers)
 # example response JSON:
 # {'type': 'file', 'filename': 'syllabus.pdf', 'size': 911753, 'links': {'self': 'https://vault.cca.edu/api/file/83914a3e-ab74-4534-967c-958f94ec5017/dir/syllabus.pdf', 'dir': 'https://vault.cca.edu/api/file/83914a3e-ab74-4534-967c-958f94ec5017/dir/syllabus.pdf', 'content': 'https://vault.cca.edu/api/file/83914a3e-ab74-4534-967c-958f94ec5017/content/syllabus.pdf'}}
 
@@ -48,7 +48,7 @@ data = {
         }
     ],
     "collection": {
-        "uuid": config.collection_uuid
+        "uuid": config["collection_uuid"]
     },
     "metadata": """<xml>
         <local>
@@ -93,7 +93,7 @@ data = {
 
 # this is necessary or EQUELLA throws an Unsupported Media Type error
 headers["Content-Type"] = 'application/json'
-response = requests.post(config.api_root + '/item?file=' + filearea_uuid, data=json.dumps(data), headers=headers)
+response = requests.post(config["api_root"] + '/item?file=' + filearea_uuid, data=json.dumps(data), headers=headers)
 
 print(response.headers)
 print(response.text)
