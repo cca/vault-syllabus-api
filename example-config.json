@@ -1,5 +1,5 @@
 {
-	"api_root": "https://vault.cca.edu/api",
-	"collection_uuid": "9ec74523-e018-4e01-ab4e-be4dd06cdd68",
-	"access_token": "copy this file to config.json & insert OAuth token here"
+	"ACCESS_TOKEN": "copy this file to config.json & insert OAuth token here",
+	"API_ROOT": "https://vault.cca.edu/api",
+	"SYLLABUS_COLLECTION_UUID": "9ec74523-e018-4e01-ab4e-be4dd06cdd68"
 }
