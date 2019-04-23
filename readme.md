@@ -7,8 +7,8 @@ This is a very small proof-of-concept that adds to VAULT's Syllabus Collection u
 1. Create a Python virtualenv, e.g. `virtualenv -p python3 .`
 1. Enter the virtualenv & install dependencies, e.g. `source bin/activate ; pip install -r requirements.txt`
 1. Obtain (ask Systems Librarian for it) openEQUELLA OAuth access token with, at a minimum, the `CREATE_ITEM` privilege
-1. Copy example.config.json to config.json and add token under `access_token`
-1. Edit app.py details, for instance changing the syllabus `filename` or editing the `metadata` section of `data`
+1. Copy example.config.json to config.json and add token under `ACCESS_TOKEN`
+1. Edit app.py details, for instance changing the syllabus filename or the `section` dict
 1. Run `python app.py` & the JSON returned on success links to an API representation of your item
 
 # Data Flow
