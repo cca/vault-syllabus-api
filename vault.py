@@ -9,6 +9,31 @@ with open('config.json') as f:
     settings = json.load(f)
 
 
+def get_department(str):
+    """ Translate Portal department code into VAULT one
+
+    There are disagreements in various course information systems about what
+    department codes exist and what they are for particular subjects. This
+    function abstracts over that so VAULT and developers are happy.
+    """
+    # map portal:vault
+    map = {
+        "CRTSD": "CRTST",
+        "DSMBA": "DESST",
+        "DIVSM": "DIVRS",
+        "DIVST": "DIVRS",
+        "LITPA": "WRLIT",
+        "UDIST": "INTDS",
+        "PHCRT": "CRTST",
+        "SCIMA": "CRTST",
+        "SSHIS": "CRTST",
+    }
+    if str in map:
+        return map[str]
+    # fallback - either new department code or doesn't need to be changed
+    return str
+
+
 def submit_syllabus(section, filename):
     """ Submit a syllabus to VAULT using its REST API.
 
@@ -31,8 +56,8 @@ def submit_syllabus(section, filename):
 
         Note that the "Location" header is the API URL for the newly created
         item. A link to the item's web page within VAULT can be obtained by
-        removing the "/api" portion from this URL's path:
-        https://vault.cca.edu/item/4f7e3993-dc9d-41fb-81cc-e546b2f7e6ee/1/
+        removing the "/api" portion of path & pluralizing "items":
+        https://vault.cca.edu/items/4f7e3993-dc9d-41fb-81cc-e546b2f7e6ee/1/
 
         If unsuccessful, the body will be JSON describing the error, for instance:
         { "code":500, "error":"Internal Server Error",
@@ -85,6 +110,7 @@ def submit_syllabus(section, filename):
     strings = section
     strings["filename"] = filename
     strings["course_name"] = section["code"][:9]
+    strings["department"] = get_department(section["department"])
     # escape everything
     strings = { key: escape(value) for key, value in strings.items() }
     data = {
@@ -101,6 +127,7 @@ def submit_syllabus(section, filename):
         },
         # note that VAULT's expert save script constructs mods/title/titleInfo,
         # local/department, and local/division fields
+        # @TODO incorporate uploaded_by metadata somewhere
         "metadata": """<xml>
             <local>
                 <courseInfo>
