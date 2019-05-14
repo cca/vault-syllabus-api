@@ -2,11 +2,12 @@ from vault import submit_syllabus
 
 section = {
     "semester": "Spring 2019",
-    "department": "ANIMA",
-    "code": "ANIMA-101-05",
-    "title": "Test VAULT API",
+    "department": "DSMBA",
+    "code": "DSMBA-640-01",
+    "title": "Strategic Foresight (test)",
     "faculty_string": "Person Two, People McThree",
-    "faculty_usernames": "ephetteplace, ahaar"
+    "faculty_usernames": "ephetteplace, ahaar",
+    "uploaded_by": "ephetteplace"
 }
 response = submit_syllabus(section, 'syllabus.pdf')
 
