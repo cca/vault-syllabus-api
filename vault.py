@@ -22,17 +22,21 @@ def submit_syllabus(section, filename):
         filename: a string of the path to the syllabus file to be uploaded
 
     Returns:
-        an HTTP response object from VAULT. The body will be empty and the HTTP
-        headers will be similar to this:
+        An HTTP response object from VAULT. If successful, the body will be empty
+        and the HTTP headers will be similar to this:
         {'Date': 'Mon, 22 Apr 2019 18:11:53 GMT', 'Server': 'Apache-Coyote/1.1',
         ...
         'Content-Length': '0', 'Connection': 'close', 'Location':
         'https://vault.cca.edu/api/item/4f7e3993-dc9d-41fb-81cc-e546b2f7e6ee/1/' }
-        Thus response.status_code is the esasiest way to test for success. Note
-        that the "Location" header is the URL for API access to the newly created
-        item; a link to the item's representation within VAULT can be obtained
-        simply by removing the "/api" portion from the URL's path e.g.
+
+        Note that the "Location" header is the API URL for the newly created
+        item. A link to the item's web page within VAULT can be obtained by
+        removing the "/api" portion from this URL's path:
         https://vault.cca.edu/item/4f7e3993-dc9d-41fb-81cc-e546b2f7e6ee/1/
+
+        If unsuccessful, the body will be JSON describing the error, for instance:
+        { "code":500, "error":"Internal Server Error",
+          "error_description":"Error parsing XML" }
 
     Raises:
         Any of the HTTP exceptions from requests might be raised:
