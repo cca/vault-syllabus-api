@@ -1,5 +1,6 @@
 import json
 import sys
+from xml.sax.saxutils import escape
 
 import requests
 
@@ -80,6 +81,8 @@ def submit_syllabus(section, filename):
     strings = section
     strings["filename"] = filename
     strings["course_name"] = section["code"][:9]
+    # escape everything
+    strings = { key: escape(value) for key, value in strings.items() }
     data = {
         "attachments": [
             {
