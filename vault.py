@@ -34,7 +34,8 @@ def submit_syllabus(section, filename):
         https://vault.cca.edu/item/4f7e3993-dc9d-41fb-81cc-e546b2f7e6ee/1/
 
     Raises:
-        TBD...
+        Any of the HTTP exceptions from requests might be raised:
+        https://2.python-requests.org/en/master/_modules/requests/exceptions/
     """
     headers = {
         'X-Authorization': 'access_token=' + settings["ACCESS_TOKEN"],
