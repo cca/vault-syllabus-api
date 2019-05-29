@@ -152,10 +152,10 @@ def submit_syllabus(section, filename):
           "showSplitOption": False,
           "nodes": [
             {
-                "name": "Node 1",
+                "name": "Syllabus",
                 "tabs": [
                     {
-                        "name": "Tab 1",
+                        "name": "Syllabus",
                         "attachment": { "$ref": "uuid:" + filename, }
                     },
                 ],
